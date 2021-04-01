@@ -14,37 +14,5 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-import $ from 'jquery';
-import 'bootstrap';
-import '../stylesheets/application';
-
-import { Calendar } from '@fullcalendar/core';
-import dayGridPlugin from '@fullcalendar/daygrid';
-import interactionPlugin from '@fullcalendar/interaction';
-
-window.onload = function () {
-  $('#modal1').modal({
-    show: false
-  });
-
-
-  var calendarEl = document.getElementById('calendar');
-  var calendar = new Calendar(calendarEl, {
-    plugins: [dayGridPlugin, interactionPlugin],
-    initialView: 'dayGridMonth',
-    selectable: true,
-    events: [
-      {
-        id: 123,
-        title: 'サンプルイベント',
-        start: new Date()
-      }
-    ],
-
-
-    eventClick: (event) => {
-      $('#modal1').modal('show');
-    }
-  });
-  calendar.render();
-}
+import './style';
+import './calendar';
