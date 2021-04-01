@@ -26,6 +26,8 @@ window.onload = function () {
   var calendarEl = document.getElementById('calendar');
   var calendar = new Calendar(calendarEl, {
     plugins: [dayGridPlugin, interactionPlugin],
+    initialView: 'dayGridMonth',
+    selectable: true,
     events: [
       {
         id: 123,
