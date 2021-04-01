@@ -14,7 +14,7 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-
+import $ from 'jquery';
 import 'bootstrap';
 import '../stylesheets/application';
 
@@ -23,6 +23,11 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 
 window.onload = function () {
+  $('#modal1').modal({
+    show: false
+  });
+
+
   var calendarEl = document.getElementById('calendar');
   var calendar = new Calendar(calendarEl, {
     plugins: [dayGridPlugin, interactionPlugin],
@@ -35,13 +40,10 @@ window.onload = function () {
         start: new Date()
       }
     ],
-    eventClick: function (info) {
-      alert('Event: ' + info.event.title);
-      alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
-      alert('View: ' + info.view.type);
 
-      // change the border color just for fun
-      info.el.style.borderColor = 'red';
+
+    eventClick: (event) => {
+      $('#modal1').modal('show');
     }
   });
   calendar.render();
