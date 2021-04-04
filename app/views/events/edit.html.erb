@@ -8,4 +8,5 @@
     <%= f.datetime_local_field :start_at, class: 'form-control'%>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
+<%= button_to "delete", @event, method: :delete, class: "btn btn-danger", data: {confirm: "削除します。よろしいですか？"} %>
 <% end %>
