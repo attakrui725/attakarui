@@ -1,5 +1,16 @@
 class EventsController < ApplicationController
+  def top
+  end
+
   def index
+    @events = Event.all
+    render json: @events.map{|event|
+      {
+        id: event.id,
+        title: event.title,
+        start: event.start_at,
+      }
+    }
   end
 
   def new
@@ -8,7 +19,7 @@ class EventsController < ApplicationController
     @event.start_at = params[:date]
   end
 
-   def create
+  def create
     @event = Event.new(event_params)
     @event.save
     redirect_to root_path

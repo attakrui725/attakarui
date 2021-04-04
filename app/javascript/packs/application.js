@@ -25,6 +25,7 @@ window.onload = function () {
   var calendarEl = document.getElementById('calendar');
   var calendar = new Calendar(calendarEl, {
     plugins: [dayGridPlugin, interactionPlugin],
+    events: "/events",
     dateClick: function (info) {
       location.href = `/events/new?date=${info.dateStr}`;
 
