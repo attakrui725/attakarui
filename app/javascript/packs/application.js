@@ -20,6 +20,7 @@ import '../stylesheets/application';
 import { Calendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
+import { event } from 'jquery';
 
 window.onload = function () {
   var calendarEl = document.getElementById('calendar');
@@ -28,7 +29,9 @@ window.onload = function () {
     events: "/events",
     dateClick: function (info) {
       location.href = `/events/new?date=${info.dateStr}`;
-
+    },
+    eventClick: function (info) {
+      location.href = `/events/${info.event.id}/edit`;
     }
   });
   calendar.render();
