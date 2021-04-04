@@ -27,6 +27,7 @@ window.onload = function () {
     plugins: [dayGridPlugin, interactionPlugin],
     dateClick: function (info) {
       location.href = `/events/new?date=${info.dateStr}`;
+
     }
   });
   calendar.render();
