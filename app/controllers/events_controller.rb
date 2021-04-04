@@ -8,4 +8,13 @@ class EventsController < ApplicationController
     @event.start_at = params[:date]
   end
 
+   def create
+    @event = Event.new(event_params)
+    @event.save
+    redirect_to root_path
+  end
+  private
+  def event_params
+    params.require(:event).permit(:title, :start_at)
+  end
 end
