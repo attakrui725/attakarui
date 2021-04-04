@@ -24,7 +24,16 @@ import interactionPlugin from '@fullcalendar/interaction';
 window.onload = function () {
   var calendarEl = document.getElementById('calendar');
   var calendar = new Calendar(calendarEl, {
-    plugins: [dayGridPlugin, interactionPlugin]
+    plugins: [dayGridPlugin, interactionPlugin],
+    dateClick: function (info) {
+      alert('Clicked on: ' + info.dateStr);
+      alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
+      alert('Current view: ' + info.view.type);
+      // change the day's background color just for fun
+      info.dayEl.style.backgroundColor = 'red';
+    }
   });
   calendar.render();
+
+
 }
