@@ -1,12 +1,11 @@
-
-<form>
+<%= form_with model:@event do |f| %>
   <div class="mb-3">
     <label class="form-label">Titlte</label>
-    <input type="text" class="form-control">
+  <%= f.text_field :title, class: 'form-control' %>
   </div>
   <div class="mb-3">
     <label class="form-label">Datetime</label>
-    <input type="datetime-local" class="form-control">
+    <%= f.datetime_local_field :start_at, class: 'form-control'%>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+<% end %>
