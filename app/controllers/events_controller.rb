@@ -26,17 +26,23 @@ class EventsController < ApplicationController
   end
 
   def edit
-    @event = Event.find(params[:id])
-    if params[:template_key]
-      @event.title = Event::TEMPLATES[params[:template_key].to_sym]
-    end
+  @event = Event.find(params[:id])
+  if params[:template_key]
+    @event.title = Event::TEMPLATES[params[:template_key].to_sym]
   end
-
-  def update
-    @event = Event.find(params[:id])
-    @event.update(event_params)
-    redirect_to root_path
+end
+def update
+  @event = Event.find(params[:id])
+  if params[:template_key]
+    @event.image.attach(
+      io: File.open(Rails.root.join('public', "#{params[:template_key]}.png")),
+      filename: "#{params[:template_key]}.png",
+      content_type: 'image/png'
+    )
   end
+  @event.update(event_params)
+  redirect_to root_path
+end
 
   def destroy
     @event = Event.find(params[:id])
