@@ -1,6 +1,6 @@
 <div class="container mt-3">
 <div class="row">
-<%= Event::TEMPLATES.each do |key, label| %>
+<% Event::TEMPLATES.each do |key, label| %>
 <div class="col-4">
 <%= link_to new_event_path(template_key: key, date: params[:date]) do %>
 <div class="card" style="width: 18rem;">
