@@ -41,6 +41,10 @@ class EventsController < ApplicationController
     redirect_to root_path
   end
 
+  def edit_template
+    @event = Event.find(params[:event_id])
+  end
+
   private
   def event_params
     params.require(:event).permit(:title, :start_at)

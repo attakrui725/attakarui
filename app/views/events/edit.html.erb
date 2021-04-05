@@ -1,3 +1,5 @@
+<div class="container mt-3">
+<div class="low">
 <%= form_with model: @event, local: true do |f| %>
   <div class="mb-3">
     <label class="form-label">Titlte</label>
@@ -7,11 +9,18 @@
     <label class="form-label">Datetime</label>
     <%= f.datetime_local_field :start_at, class: 'form-control'%>
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-<%= button_to "delete", @event, method: :delete, class: "btn btn-danger", data: {confirm: "削除します。よろしいですか？"} %>
- <div class="mb-3">
+  <div class="mb-3">
     <label class="form-label">Image</label>
     <input type="file">
     <img src="/sample.png">
   </div>
+  <div class="buttons d-flex ">
+  <button type="submit" class="btn btn-primary mr-3">Submit</button>
+<%= button_to "delete", @event, method: :delete, class: "btn btn-danger mr-3", data: {confirm: "削除します。よろしいですか？"} %>
+<%= link_to 'テンプレートから選択', event_edit_template_path(@event) ,class: "btn btn-secondary mr-3 pt-3"%>
+
+  </div>
+
 <% end %>
+</div>
+</div>
