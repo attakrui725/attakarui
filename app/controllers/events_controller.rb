@@ -27,6 +27,9 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
+    if params[:template_key]
+      @event.title = Event::TEMPLATES[params[:template_key].to_sym]
+    end
   end
 
   def update

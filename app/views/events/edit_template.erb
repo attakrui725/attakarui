@@ -2,14 +2,14 @@
 <div class="row">
 <% Event::TEMPLATES.each do |key, label| %>
 <div class="col-4">
-<a href="tmp">
+<%= link_to edit_event_path(@event, template_key: key) do %>
 <div class="card" style="width: 18rem;">
   <%= image_tag "/#{key}.png", class: "card-img-top", alt: '...' %>
   <div class="card-body">
     <p class="card-text"><%= label %></p>
   </div>
 </div>
-</a>
+<% end %>
 </div>
 <% end %>
 </div>
