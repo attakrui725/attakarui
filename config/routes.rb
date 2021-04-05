@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :events, only: [:index, :new, :create, :edit,
   :update, :destroy] do
     get 'edit_template'
+    get 'new_template', on: :collection
   end
 
 end

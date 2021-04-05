@@ -14,22 +14,29 @@
     <label class="form-label">Image</label>
    <%= f.file_field :image, id:"img" %>
   <img id="preview" width="200">
-
+​
   </div>
+​
+      <% if params[:template_key] %>
+        <%= hidden_field_tag :template_key, params[:template_key] %>
+        <%= image_tag "/#{params[:template_key]}.png", class: 'message-image' %>
+      <% elsif @event.image.attached? %>
+        <%= image_tag @event.image.variant(resize: '500x500'), class: 'message-image' %>
+      <% end %>
  <div class="buttons d-flex justify-content-between">
   <div class="left_buttons d-flex mt-3">
   <button type="submit" class="btn btn-primary mr-3">Submit</button>
-<%= link_to 'テンプレートから選択',"#" ,class: "btn btn-secondary mr-3 pt-3 pb-3"%>
+<%= link_to 'テンプレートから選択', new_template_events_path(date: params[:date]) ,class: "btn btn-secondary mr-3 pt-3 pb-3"%>
   <div id="image-list"></div>
-
+​
   </div>
 <div class="right_button">
 <%= link_to 'カレンダーへ戻る',root_path ,class: "btn btn-info mr-3 mt-3 pt-3 pb-3"%>
 </div>
 </div>
-
+​
   </div>
-
+​
 <% end %>
 </div>
 </div>
