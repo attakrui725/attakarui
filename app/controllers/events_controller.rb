@@ -1,24 +1,21 @@
 class EventsController < ApplicationController
-  def top
-  end
+  def top; end
 
   def index
     @events = Event.all
-    render json: @events.map{|event|
+    render json: @events.map { |event|
       {
         id: event.id,
         title: event.title,
-        start: event.start_at,
+        start: event.start_at
       }
     }
   end
 
   def new
     @event = Event.new
-    @event.title = "新規イベント"
-    if params[:template_key]
-      @event.title = Event::TEMPLATES[params[:template_key].to_sym]
-    end
+    @event.title = '新規イベント'
+    @event.title = Event::TEMPLATES[params[:template_key].to_sym] if params[:template_key]
     @event.start_at = params[:date]
   end
 
@@ -37,9 +34,7 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
-    if params[:template_key]
-      @event.title = Event::TEMPLATES[params[:template_key].to_sym]
-    end
+    @event.title = Event::TEMPLATES[params[:template_key].to_sym] if params[:template_key]
   end
 
   def update
@@ -66,6 +61,7 @@ class EventsController < ApplicationController
   end
 
   private
+
   def event_params
     params.require(:event).permit(:title, :start_at, :image)
   end

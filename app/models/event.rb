@@ -7,7 +7,7 @@ class Event < ApplicationRecord
     ready_to_go_to_kindergarten: '保育園の準備',
     toilet_cleaning: 'トイレ掃除',
     walking_dog: '犬の散歩',
-    washing_clothes: '洗濯',
-  }
+    washing_clothes: '洗濯'
+  }.freeze
   has_one_attached :image
 end

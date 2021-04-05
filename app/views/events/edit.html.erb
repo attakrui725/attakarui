@@ -22,7 +22,9 @@
       <% end %>
 <div class="buttons d-flex justify-content-between">
   <div class="left_buttons d-flex mt-3">
-  <button type="submit" class="btn btn-primary mr-3">Submit</button>
+  <button type="submit" class="btn btn-primary mr-3">登録</button>
+  <%= button_to "削除", @event, method: :delete, class: "btn btn-danger mr-3", data: {confirm: "削除します。よろしいですか？"} %>
+
 <%= link_to 'テンプレートから選択', event_edit_template_path(@event) ,class: "btn btn-secondary mr-3 pt-3 pb-3"%>
   </div>
 <div class="right_button">
@@ -30,5 +32,4 @@
 </div>
 </div>
 <% end %>
-<%= button_to "delete", @event, method: :delete, class: "btn btn-danger mr-3", data: {confirm: "削除します。よろしいですか？"} %>
 </div>
