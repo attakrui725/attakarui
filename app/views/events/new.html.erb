@@ -1,3 +1,4 @@
+<%= javascript_pack_tag 'preview' %>
 <div class="container mt-3">
 <div class="low">
 <%= form_with model: @event, local: true do |f| %>
@@ -11,12 +12,15 @@
   </div>
   <div class="mb-3">
     <label class="form-label">Image</label>
-   <%= f.file_field :image, id:"item-image" %>
+  <%= f.file_field :image, id:"img", height:"200"%>
+  <img id="preview">
+
   </div>
  <div class="buttons d-flex justify-content-between">
   <div class="left_buttons d-flex mt-3">
   <button type="submit" class="btn btn-primary mr-3">Submit</button>
 <%= link_to 'テンプレートから選択',"#" ,class: "btn btn-secondary mr-3 pt-3 pb-3"%>
+  <div id="image-list"></div>
 
   </div>
 <div class="right_button">
