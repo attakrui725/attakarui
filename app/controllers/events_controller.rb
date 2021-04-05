@@ -7,7 +7,8 @@ class EventsController < ApplicationController
       {
         id: event.id,
         title: event.title,
-        start: event.start_at
+        start: event.start_at,
+        color: event.is_done ? '#AAAAAA' : nil
       }
     }
   end
@@ -61,8 +62,7 @@ class EventsController < ApplicationController
   end
 
   private
-
   def event_params
-    params.require(:event).permit(:title, :start_at, :image)
+    params.require(:event).permit(:title, :start_at, :image, :is_done)
   end
 end

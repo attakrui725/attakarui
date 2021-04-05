@@ -9,6 +9,12 @@
     <label class="form-label">Datetime</label>
     <%= f.datetime_local_field :start_at, class: 'form-control'%>
   </div>
+
+    <div class="mb-3">
+    <label class="form-label">isDone</label>
+    <%= f.check_box :is_done, class: 'form-control' %>
+  </div>
+
   <div class="mb-3">
     <label class="form-label">Image</label>
     <%= f.file_field :image, id:"img" %>
