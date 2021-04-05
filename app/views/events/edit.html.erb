@@ -11,7 +11,8 @@
   </div>
   <div class="mb-3">
     <label class="form-label">Image</label>
-   <%= f.file_field :image, id:"item-image" %>
+    <%= f.file_field :image, id:"img" %>
+  <img id="preview" width="200">
   </div>
       <%= image_tag @event.image.variant(resize: '500x500'), class: 'message-image' if @event.image.attached? %>
 
