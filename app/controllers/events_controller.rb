@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   def top
   end
-​
+
   def index
     @events = Event.all
     render json: @events.map{|event|
@@ -12,7 +12,7 @@ class EventsController < ApplicationController
       }
     }
   end
-​
+
   def new
     @event = Event.new
     @event.title = "新規イベント"
@@ -21,7 +21,7 @@ class EventsController < ApplicationController
     end
     @event.start_at = params[:date]
   end
-​
+
   def create
     @event = Event.new(event_params)
     if params[:template_key]
@@ -34,14 +34,14 @@ class EventsController < ApplicationController
     @event.save
     redirect_to root_path
   end
-​
+
   def edit
     @event = Event.find(params[:id])
     if params[:template_key]
       @event.title = Event::TEMPLATES[params[:template_key].to_sym]
     end
   end
-​
+
   def update
     @event = Event.find(params[:id])
     if params[:template_key]
@@ -54,17 +54,17 @@ class EventsController < ApplicationController
     @event.update(event_params)
     redirect_to root_path
   end
-​
+
   def destroy
     @event = Event.find(params[:id])
     @event.destroy
     redirect_to root_path
   end
-​
+
   def edit_template
     @event = Event.find(params[:event_id])
   end
-​
+
   private
   def event_params
     params.require(:event).permit(:title, :start_at, :image)
