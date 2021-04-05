@@ -1,99 +1,16 @@
 <div class="container mt-3">
 <div class="row">
-
+<%= Event::TEMPLATES.each do |key, label| %>
 <div class="col-4">
 <a href="tmp">
 <div class="card" style="width: 18rem;">
-  <img src="https://4.bp.blogspot.com/-aurP2wC6nSI/WZP34_BvCJI/AAAAAAABGCc/UDEGhvMKOKc89dZkwlFGQctBLR2vma2gwCLcBGAs/s800/soujiki_man.png" class="card-img-top" alt="...">
+  <%= image_tag "/#{key}.png", class: "card-img-top", alt: '...' %>
   <div class="card-body">
-    <p class="card-text">掃除機をかける</p>
+    <p class="card-text"><%= label %></p>
   </div>
 </div>
 </a>
 </div>
-
-<div class="col-4">
-<a href="tmp">
-<div class="card" style="width: 18rem;">
-  <img src="/cooking_papa.png" class="card-img-top" alt="...">
-  <div class="card-body">
-    <p class="card-text">朝ごはんをつくる</p>
-  </div>
-</div>
-</a>
-</div>
-<div class="col-4">
-<a href="tmp">
-<div class="card" style="width: 18rem;">
-  <img src="/checking_post.png" class="card-img-top" alt="...">
-  <div class="card-body">
-    <p class="card-text">郵便の確認</p>
-  </div>
-</div>
-</a>
-</div>
-<div class="col-4">
-<a href="tmp">
-<div class="card" style="width: 18rem;">
-  <img src="/walking_dog.png" class="card-img-top" alt="...">
-  <div class="card-body">
-    <p class="card-text">犬の散歩</p>
-  </div>
-</div>
-</a>
-</div>
-
-<div class="col-4">
-<a href="tmp">
-<div class="card" style="width: 18rem;">
-  <img src="/bath_cleaning.png" class="card-img-top" alt="...">
-  <div class="card-body">
-    <p class="card-text">風呂掃除</p>
-  </div>
-</div>
-</a>
-</div>
-
-<div class="col-4">
-<a href="tmp">
-<div class="card" style="width: 18rem;">
-  <img src="/toilet_cleaning.png" class="card-img-top" alt="...">
-  <div class="card-body">
-    <p class="card-text">トイレ掃除</p>
-  </div>
-</div>
-</a>
-</div>
-
-<div class="col-4">
-<a href="tmp">
-<div class="card" style="width: 18rem;">
-  <img src="/ready_to_go_to_kindergarten.png" class="card-img-top" alt="...">
-  <div class="card-body">
-    <p class="card-text">保育園の準備</p>
-  </div>
-</div>
-</a>
-</div>
-<div class="col-4">
-<a href="tmp">
-<div class="card" style="width: 18rem;">
-  <img src="/washing_clothes.png" class="card-img-top" alt="...">
-  <div class="card-body">
-    <p class="card-text">洗濯</p>
-  </div>
-</div>
-</a>
-</div>
-<div class="col-4">
-<a href="tmp">
-<div class="card" style="width: 18rem;">
-  <img src="/garvage_removal.png" class="card-img-top" alt="...">
-  <div class="card-body">
-    <p class="card-text">ゴミ出し</p>
-  </div>
-</div>
-</a>
-</div>
+<% end %>
 </div>
 </div>
